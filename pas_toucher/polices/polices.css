@@ -1,0 +1,25 @@
+/* =================================================================
+   Polices du site, hébergées avec le site (pas besoin d'Internet,
+   pas d'appel à Google). Great Vibes : licence libre SIL OFL,
+   voir LICENCE-great-vibes-OFL.txt.
+
+   La même police est déclarée en "normal" et en "italic" :
+   les titres du site sont en italique, et sans cela le navigateur
+   pencherait artificiellement une écriture déjà penchée.
+   ================================================================= */
+
+@font-face {
+  font-family: 'Great Vibes';
+  src: url(great-vibes.woff2) format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Great Vibes';
+  src: url(great-vibes.woff2) format('woff2');
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+}

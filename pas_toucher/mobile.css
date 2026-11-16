@@ -1,0 +1,151 @@
+/* =================================================================
+   mobile.css — adaptation aux petits écrans (téléphones, tablettes)
+   Chargé en dernier sur toutes les pages : il ne change rien
+   sur ordinateur, il ne s'applique que sous 800 px de large.
+   ================================================================= */
+
+/* Sur tous les écrans : les images ne débordent jamais de leur cadre */
+img, video { max-width: 100%; height: auto; }
+
+@media screen and (max-width: 800px) {
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body { overflow-x: hidden; }
+
+  body {
+    margin: 4px;
+    border-width: 3px !important;
+    border-radius: 16px !important;
+    font-size: 16px;
+  }
+
+  h1 { font-size: 1.8em; margin: 0.4em 0; }
+  h2 { font-size: 1.5em; }
+
+  /* ---------- Titres et barres de menu ---------- */
+  .titre {
+    width: auto !important;
+    padding: 5px !important;
+  }
+
+  /* Les tableaux servent de mise en page : on les "déplie" en blocs */
+  table.t1, table.t2,
+  .t1 > tbody, .t2 > tbody,
+  .t1 > tbody > tr, .t2 > tbody > tr,
+  .t1 > tr, .t2 > tr {
+    display: block;
+    width: auto !important;
+  }
+
+  .t1, .t2, .t3 {
+    width: auto !important;
+    margin: 10px 4px !important;
+    padding: 8px !important;
+  }
+
+  /* Barre de navigation : les liens passent à la ligne au lieu de déborder */
+  .t1 > tbody > tr, .t1 > tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 12px;
+  }
+  .t1 > tbody > tr > td, .t1 > tr > td { display: inline-block; padding: 2px; max-width: 100%; }
+
+  /* Tableaux de données (cuisson du sucre, convertisseur…) :
+     on garde les colonnes et on fait défiler le tableau sur le côté */
+  table.t3 {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 14px;
+  }
+
+  /* ---------- Pages recette : liste à gauche + recette ---------- */
+  #conteneur {
+    display: flex;
+    flex-direction: column-reverse;   /* la recette d'abord, la liste ensuite */
+    width: auto !important;
+  }
+
+  .mousses, .brioche, .verrine, .gouter, .histoire {
+    width: auto !important;
+    margin: 10px 4px !important;
+  }
+
+  .mousses ol, .mousses ul { column-width: 150px; column-gap: 24px; }
+
+  .recette { width: auto !important; }
+
+  /* Le grand cadre de la recette se déplie… */
+  .recette > table, .recette > table > tbody,
+  .recette > table > tbody > tr, .recette > table > tbody > tr > td {
+    display: block;
+    width: auto !important;
+  }
+  /* …mais les tableaux d'ingrédients gardent leurs colonnes,
+     sinon les titres se retrouvent séparés de leurs listes */
+  .recette table table {
+    width: 100% !important;
+    table-layout: fixed;
+    font-size: 14px;
+  }
+  .recette table table td, .recette table table th {
+    vertical-align: top;
+    padding: 2px;
+  }
+  .recette table table ul, .recette table table ol { padding-left: 16px; }
+
+  .flotte, .img1, .img0, .img {
+    float: none !important;
+    display: block;
+    margin: 10px auto !important;
+    max-width: 90% !important;
+  }
+
+  .cadre { width: auto !important; }
+
+  /* ---------- Pages "carte" de chaque rubrique ---------- */
+  body > table[style*="border-collapse"],
+  body > table[style*="border-collapse"] > tbody,
+  body > table[style*="border-collapse"] > tbody > tr,
+  body > table[style*="border-collapse"] > tbody > tr > td {
+    display: block;
+    width: auto !important;
+  }
+  body > table[style*="border-collapse"] > tbody > tr > td a { font-size: 22px !important; }
+
+  /* Le bandeau "image – titre – image" */
+  div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr auto 1fr !important;
+    gap: 6px !important;
+  }
+  div[style*="grid-template-columns"] > div {
+    margin: 0 !important;
+    font-size: 30px !important;
+  }
+  div[style*="grid-template-columns"] img { width: 70px !important; }
+
+  /* Les vignettes de recettes */
+  div.t1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .element { width: 45%; margin: 0 !important; }
+  .element img { width: 100% !important; }
+  .element a, .affiche { font-size: 16px !important; }
+
+  /* Pas d'effet de zoom au toucher : il fait déborder la page */
+  a:hover, a:focus, img:hover { transform: none !important; }
+
+  /* ---------- Page d'accueil ---------- */
+  .texte { width: auto !important; max-width: 90%; font-size: 16pt !important; }
+  .menu .t2 { width: auto !important; }
+  .menu .td1 img { width: 45%; display: inline-block !important; margin: 4px 1% !important; }
+
+  /* ---------- Fenêtre vidéo ---------- */
+  .modal-content { width: 95% !important; margin: 15% auto !important; }
+}
